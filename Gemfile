@@ -45,6 +45,8 @@ group :development, :test do
   gem 'rails-controller-testing'
   # A library for setting up Ruby objects as test data.
   gem 'factory_bot_rails'
+  # Collection of testing matchers extracted from Shoulda 
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
