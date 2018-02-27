@@ -1,15 +1,18 @@
 class CoursesController < ApplicationController
+  before_action :set_course, only: [:show, :edit]
 
   def index
     @courses = Course.all
   end
 
   def show
-    @course = Course.find(params[:id])
   end
 
   def new
     @course = Course.new
+  end
+
+  def edit
   end
 
   def create
@@ -27,5 +30,9 @@ class CoursesController < ApplicationController
 
     def course_params
       params.require(:course).permit(:title, :description)
+    end
+
+    def set_course
+      @course = Course.find(params[:id])
     end
 end
