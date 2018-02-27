@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update]
+  before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   def index
     @courses = Course.all
@@ -33,6 +33,12 @@ class CoursesController < ApplicationController
     else
       render "edit"
     end
+  end
+
+  def destroy
+    @course.destroy
+    flash[:alert] = "course deleted!"
+    redirect_to courses_path
   end
 
   private
