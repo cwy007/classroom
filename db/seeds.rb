@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Course.destroy_all
+10.times do |i|
+  Course.create!(
+          title: "#{i}_#{Faker::Lorem.word}",
+    description: Faker::Lorem.paragraph
+  )
+end
+puts "Create 10 courses!"
