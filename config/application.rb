@@ -27,5 +27,9 @@ module Classroom
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # skip generate assets and helper
+    config.generators.assets = false
+    config.generators.helper = false
   end
 end
