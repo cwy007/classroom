@@ -29,7 +29,7 @@ module Classroom
     config.generators.system_tests = nil
 
     # skip generate assets and helper
-    config.generators.assets = false
+    # config.generators.assets = false
     config.generators.helper = false
   end
 end
