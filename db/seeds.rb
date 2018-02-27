@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Create 10 courses
 Course.destroy_all
 10.times do |i|
   Course.create!(
@@ -14,3 +15,15 @@ Course.destroy_all
   )
 end
 puts "Create 10 courses!"
+
+# create an user
+User.destroy_all
+user = User.create(
+     email: "user@example.com",
+  password: "secret"
+)
+puts %{
+  create an user:
+     email: "user@example.com"
+  password: "secret"
+}
