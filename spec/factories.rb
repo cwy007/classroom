@@ -8,7 +8,8 @@ FactoryBot.define do
   end
 
   factory :course do
-          title "Course Name"
+    title "Course Name"
     description "Description."
+    user 
   end
 end

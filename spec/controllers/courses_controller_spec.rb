@@ -70,7 +70,7 @@ RSpec.describe CoursesController do
   describe "POST create" do
     let(:user) { create(:user) }
     before { sign_in user }
-    
+
     context "when course doesn't have a title" do
       it "doesn't create a record" do
         expect do
@@ -100,6 +100,14 @@ RSpec.describe CoursesController do
         post :create, params: { course: attributes_for(:course) }
 
         expect(response).to redirect_to courses_path
+      end
+
+      it "create a course for user" do
+        course = build(:course)
+
+        post :create, params: { course: attributes_for(:course) }
+
+        expect(Course.last.user).to eq(user) 
       end
     end
   end
