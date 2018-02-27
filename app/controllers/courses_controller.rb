@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit]
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -19,7 +19,7 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     @course.user = current_user
-    
+
     if @course.save
       flash[:notice] = "course created successfully!"
       redirect_to courses_path

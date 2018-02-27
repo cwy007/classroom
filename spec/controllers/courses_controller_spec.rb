@@ -107,12 +107,15 @@ RSpec.describe CoursesController do
 
         post :create, params: { course: attributes_for(:course) }
 
-        expect(Course.last.user).to eq(user) 
+        expect(Course.last.user).to eq(user)
       end
     end
   end
 
   describe "GET edit" do
+    let(:user) { create(:user) }
+    before { sign_in user }
+
     it "assigns @course" do
       course = create(:course)
 
