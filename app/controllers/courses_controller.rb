@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit]
+  before_action :set_course, only: [:show, :edit, :update]
 
   def index
     @courses = Course.all
@@ -23,6 +23,15 @@ class CoursesController < ApplicationController
       redirect_to courses_path
     else
       render "new"
+    end
+  end
+
+  def update
+    if @course.update(course_params)
+      flash[:notice] = "course updated successfully!"
+      redirect_to course_path(@course)
+    else
+      render "edit"
     end
   end
 
