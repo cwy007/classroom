@@ -36,6 +36,8 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'simple_form'
+gem "font-awesome-rails"
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -45,8 +47,10 @@ group :development, :test do
   gem 'rails-controller-testing'
   # A library for setting up Ruby objects as test data.
   gem 'factory_bot_rails'
-  # Collection of testing matchers extracted from Shoulda 
+  # Collection of testing matchers extracted from Shoulda
   gem 'shoulda-matchers', '~> 3.1'
+  # Acceptance test framework for web applications
+  gem 'capybara'
 end
 
 group :development do
@@ -56,6 +60,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rails-erd'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

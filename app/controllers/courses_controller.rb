@@ -1,11 +1,12 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @courses = Course.all
   end
 
   def show
+    @course = Course.find(params[:id])
   end
 
   def new
@@ -13,10 +14,12 @@ class CoursesController < ApplicationController
   end
 
   def edit
+    @course = current_user.courses.find(params[:id])
   end
 
   def create
     @course = Course.new(course_params)
+    @course.user = current_user
 
     if @course.save
       flash[:notice] = "course created successfully!"
@@ -27,6 +30,8 @@ class CoursesController < ApplicationController
   end
 
   def update
+    @course = current_user.courses.find(params[:id])
+
     if @course.update(course_params)
       flash[:notice] = "course updated successfully!"
       redirect_to course_path(@course)
@@ -36,7 +41,9 @@ class CoursesController < ApplicationController
   end
 
   def destroy
+    @course = current_user.courses.find(params[:id])
     @course.destroy
+    
     flash[:alert] = "course deleted!"
     redirect_to courses_path
   end
@@ -45,9 +52,5 @@ class CoursesController < ApplicationController
 
     def course_params
       params.require(:course).permit(:title, :description)
-    end
-
-    def set_course
-      @course = Course.find(params[:id])
     end
 end
