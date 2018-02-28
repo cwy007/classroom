@@ -1,10 +1,10 @@
-require_relative "base"
+require_relative "../base"
 
 module PageObjects
   module Pages
     class Home < Base
       def go
-        visit root_url 
+        visit root_url
       end
     end
   end

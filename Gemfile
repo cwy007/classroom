@@ -65,6 +65,8 @@ end
 
 group :test do
   gem 'database_rewinder'
+  # Simplify form filling with Capybara
+  gem 'formulaic'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
