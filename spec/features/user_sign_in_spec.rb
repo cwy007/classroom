@@ -1,14 +1,20 @@
 require "rails_helper"
 
-describe "user sign in", :type => :feature do
-  before :each do
+feature "user sign in" do
+  before do
     User.create(:email => "user@example.com", :password => "password")
   end
 
-  it "sign_in the user" do
+  scenario "good credentials" do
     new_session_page.sign_in "user@example.com", "password"
 
-    expect(page).to have_content "user@example.com"
+    expect(page).to have_text "user@example.com"
+  end
+
+  scenario "bad credentials" do
+    new_session_page.sign_in "XXX@example.com", "password"
+
+    expect(page).not_to have_text "user@example.com"
   end
 
   private
