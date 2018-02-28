@@ -144,12 +144,15 @@ RSpec.describe CoursesController do
 
         expect do
           get :edit, params: { id: course.id }
-        end.to raise_error ActiveRecord::RecordNotFound 
+        end.to raise_error ActiveRecord::RecordNotFound
       end
     end
   end
 
   describe "PUT update" do
+    let(:user) { create(:user) }
+    before { sign_in user }
+    
     context "when course has title" do
       it "assigns @course" do
         course = create(:course)

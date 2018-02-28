@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def index
     @courses = Course.all
@@ -42,7 +42,7 @@ class CoursesController < ApplicationController
 
   def destroy
     @course = Course.find(params[:id])
-    
+
     @course.destroy
     flash[:alert] = "course deleted!"
     redirect_to courses_path
