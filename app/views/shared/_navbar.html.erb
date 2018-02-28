@@ -15,7 +15,7 @@
         <% if current_user %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= fa_icon "user", text: "#{current_user.name}" %>
+              <%= fa_icon "user", text: "hi!, #{current_user.email}" %>
             </a>
             <div class="dropdown-menu dropdown-menu-right bg-light-info" aria-labelledby="navbarDropdown">
               <%= link_to fa_icon("edit", text: "Edit profile"), edit_user_registration_path, class: "dropdown-item bg-light-info" %>

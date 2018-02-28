@@ -63,5 +63,11 @@ group :development do
   gem 'rails-erd'
 end
 
+group :test do
+  gem 'database_rewinder'
+  # Simplify form filling with Capybara
+  gem 'formulaic'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
